@@ -1,0 +1,10 @@
+# 服务器防火墙设置
+# todo:
+# java安装
+# yum -y list java* # 查看版本
+yum -y install java-1.8.0-openjdk-devel.x86_64
+# 中央服务器需要产生jar包, 所以需要maven
+yum -y install maven
+yum -y install git
+mkdir /proj
+cd /proj
