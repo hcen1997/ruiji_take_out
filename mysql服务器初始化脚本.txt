@@ -1,0 +1,26 @@
+## 快速安装mysql
+yum install -y mysql-server mysql
+systemctl start mysqld
+mysql
+
+## 快速安装redis
+yum install -y redis
+systemctl start redis
+redis-cli
+
+# 这样安装完之后可以直接用 都是root权限
+
+# 安装rocketmq
+wget https://dist.apache.org/repos/dist/release/rocketmq/5.1.0/rocketmq-all-5.1.0-bin-release.zip
+yum -y install unzip
+unzip rocketmq-all-5.1.0-bin-release.zip
+cd rocketmq-all-5.1.0-bin-release
+# 修改启动内存大小
+# 启动nameserver
+nohup sh bin/mqnamesrv &
+# 确认启动成功
+$ tail -f ~/logs/rocketmqlogs/namesrv.log
+# 启动broker
+nohup sh bin/mqbroker -n localhost:9876 &
+# 确认broker启动成功
+tail -f ~/logs/rocketmqlogs/broker.log
